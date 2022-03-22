@@ -28,6 +28,7 @@ export class RegisterPage implements OnInit {
   }
 
   async register() {
+    console.log('test');
     this.esValido=true;
     if(!this.formRegister.valid){
       const alert = await this.AlertController.create({
@@ -46,7 +47,7 @@ export class RegisterPage implements OnInit {
         password: i.contraseña,
         c_password: i.confirmar_contraseña
       }    
-      this.RestService.registerUser(user);
+      this.RestService.registerUser(this.formRegister.value.firstname, this.formRegister.value.secondname, this.formRegister.value.email, this.formRegister.value.password, this.formRegister.value.c_password);
       const alert = await this.AlertController.create({
         message: 'Registrado correctamente',
           buttons: ['OK']
@@ -54,7 +55,7 @@ export class RegisterPage implements OnInit {
       await alert.present();
     }
       
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/login'); // cuando el usuario se registra lo redirigimos a login
     localStorage.setItem('user', JSON.stringify(user));
   }
 }

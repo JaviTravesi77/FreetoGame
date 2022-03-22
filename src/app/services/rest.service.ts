@@ -14,6 +14,7 @@ export class RestService {
   actived : any;
   email: any;
   password: any;
+  c_password: any;
   firstname: any;
   secondname: any;
 
@@ -44,22 +45,25 @@ export class RestService {
       });
     });
   }
-  registerUser(user: any){
-    console.log(user);
+  registerUser(n_firstname: string, n_secondname: string, n_email: string, n_password: string, n_c_password: string){
+    console.log();
     return new Promise(resolve => {
       this.http.post<any>(this.apiUrl+'/register', {
-        firstname: user.firstname,
-        secondname: user.secondname,
-        email: user.email,
-        password: user.password,
-        c_password: user.c_password,
+        firstname: n_firstname,
+        secondname: n_secondname,
+        email: n_email,
+        password: n_password,
+        c_password: n_c_password,
       })
         .subscribe(data => {   
           this.token = data.data.token;
           this.firstname = data.data.firstname;
           this.secondname = data.data.secondname;
+          this.email = data.data.email;
+          this.password = data.data.password;
+          this.c_password = data.data.c_password;
           console.log(this.token);
-          console.log(this.firstname);
+
           resolve(data); 
           console.log(data);       
         }, err => {
@@ -100,7 +104,7 @@ export class RestService {
         password: '123456'
       })     
       .subscribe(data => {
-        this.token = data.data.token;         
+        this.token = data.data.token;
         resolve(data);             
         //console.log(this.token); 
       });
@@ -175,4 +179,17 @@ export class RestService {
       });
     });
   }
+  // showAdmins(id: number, type){
+  //   return new Promise(resolve =>{
+  //     this.http.get(this.user.id),
+  //     {
+  //       user_id: id
+  //     }
+  //     {
+  //       headers: new HttpHeaders().set('Authorization', 'Bearer'+this.token)
+  //     }).subscribe(data);
+  //   }, err => {
+  //     console.log('Error al mostrar los usuarios administradores')
+  //   })
+  // }
 }

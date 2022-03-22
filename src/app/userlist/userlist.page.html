@@ -25,9 +25,9 @@
         <ion-item-option *ngIf="user.actived=='1'" color="warning" (click)="deactivate(user)">
           <ion-icon slot="icon-only" name="close-outline"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="primary">
+        <!-- <ion-item-option color="primary">
           <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
-        </ion-item-option>  
+        </ion-item-option>   -->
         <ion-item-option *ngIf="user.type==='u' && user.deleted===0" color="danger" (click)="presentAlert(user)">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-item-option>

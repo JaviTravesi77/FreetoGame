@@ -44,15 +44,15 @@ export class LoginPage implements OnInit {
       this.user = this.user.data;
 
       //if(this.user.email_confirmed == 0){
-        // if(this.user.actived == 1){
-        //   if(this.user.type == 'a'){
-        //     this.router.navigate(['/userlist']);
-        //   }else{
-        //     this.router.navigate(['/cataloglist'/*, this.user.company_id*/]);//al catalogo
-        //   }
-        // }else{
-        //   this.showAlert('Error', 'Espere a ser activado por el administrador.');
-        // }
+        if(this.user.actived == 1){
+          if(this.user.type == 'a'){
+            this.router.navigate(['/userlist']);
+          }else{
+            this.router.navigate(['/pagina-inventada'/*, this.user.company_id*/]);//va a una pagina inventada que haremos en la 2a entrega
+          }
+        }else{
+          this.showAlert('Error', 'Espere a ser activado por el administrador.');
+        }
       
       //}else{
       //  this.showAlert('Error', 'Confirme el email en su bandeja de entrada');

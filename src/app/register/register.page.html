@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup] = "formRegister" method="POST" (ngSubmit)="register">
+  <form [formGroup] = "formRegister" method="POST" (ngSubmit)="register()">
     <ion-item class="dato_usuario">
       <ion-label position="floating">Nombre:</ion-label>
       <ion-input formControlName="firstname" type="text"></ion-input>
