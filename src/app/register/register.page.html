@@ -6,57 +6,60 @@
 
 <ion-content>
   <form [formGroup] = "formRegister" method="POST" (ngSubmit)="register()">
-    <ion-item class="dato_usuario">
-      <ion-label position="floating">Nombre:</ion-label>
-      <ion-input formControlName="firstname" type="text"></ion-input>
-    </ion-item>
-    <ion-label color="danger" *ngIf="formRegister.controls.firstname.errors?.required && (formRegister.touched || formRegister.dirty)">
-      * Debe introducir un nombre.
-    </ion-label>
-    <ion-label color="danger" *ngIf="formRegister.controls.firstname.errors?.minLength && (formRegister.touched || formRegister.dirty)">
-      * Su nombre debe tener al menos 3 caracteres.
-    </ion-label>
-    <ion-item class="dato_usuario">
-      <ion-label position="floating">Apellido:</ion-label>
-      <ion-input formControlName="secondname" type="text"></ion-input>
-    </ion-item>
-    <ion-label color="danger" *ngIf="formRegister.controls.secondname.errors?.required && (formRegister.touched || formRegister.dirty)">
-      * Debe introducir un apellido.
-    </ion-label>
-    <ion-label color="danger" *ngIf="formRegister.controls.secondname.errors?.minLength && (formRegister.touched || formRegister.dirty)">
-      * Su apellido debe tener al menos 3 caracteres.
-    </ion-label>
-    <ion-item class="dato_usuario">
-      <ion-label position="floating">Email:</ion-label>
-      <ion-input formControlName="email" type="text"></ion-input>
-    </ion-item>
-    <ion-label color="danger" *ngIf="formRegister.controls.email.errors?.required && (formRegister.touched || formRegister.dirty)">
-      * Debe introducir un email.
-    </ion-label>
-    <ion-label color="danger" *ngIf="formRegister.controls.email.errors?.minLength && (formRegister.touched || formRegister.dirty)">
-      * Su email debe tener al menos 3 caracteres.
-    </ion-label>
-    <ion-item class="dato_usuario">
-      <ion-label position="floating">Contraseña:</ion-label>
-      <ion-input formControlName="password" type="text"></ion-input>
-    </ion-item>
-    <ion-label color="danger" *ngIf="formRegister.controls.password.errors?.required && (formRegister.touched || formRegister.dirty)">
-      * Debe introducir una contraseña.
-    </ion-label>
-    <ion-label color="danger" *ngIf="formRegister.controls.password.errors?.minLength && (formRegister.touched || formRegister.dirty)">
-      * Su contraseña debe tener al menos 3 caracteres.
-    </ion-label>
-    <ion-item class="dato_usuario">
-      <ion-label position="floating">Confirmar contraseña:</ion-label>
-      <ion-input formControlName="c_password" type="text"></ion-input>
-    </ion-item>
-    <ion-label color="danger" *ngIf="formRegister.controls.c_password.errors?.required && (formRegister.touched || formRegister.dirty)">
-      * La contraseña debe ser la misma.
-    </ion-label>
-    <ion-label color="danger" *ngIf="formRegister.controls.c_password.errors?.minLength && (formRegister.touched || formRegister.dirty)">
-      * Su contraseña debe tener al menos 3 caracteres.
-    </ion-label>
-    <ion-button type="submit">Registrar</ion-button>
+    <div class="registro">
+      <ion-item class="dato_usuario">
+        <ion-label position="floating">Nombre:</ion-label>
+        <ion-input formControlName="firstname" type="text"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="formRegister.controls.firstname.errors?.required && (formRegister.touched || formRegister.dirty)">
+        * Debe introducir un nombre.
+      </ion-label>
+      <ion-label color="danger" *ngIf="formRegister.controls.firstname.errors?.minLength && (formRegister.touched || formRegister.dirty)">
+        * Su nombre debe tener al menos 3 caracteres.
+      </ion-label>
+      <ion-item class="dato_usuario">
+        <ion-label position="floating">Apellido:</ion-label>
+        <ion-input formControlName="secondname" type="text"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="formRegister.controls.secondname.errors?.required && (formRegister.touched || formRegister.dirty)">
+        * Debe introducir un apellido.
+      </ion-label>
+      <ion-label color="danger" *ngIf="formRegister.controls.secondname.errors?.minLength && (formRegister.touched || formRegister.dirty)">
+        * Su apellido debe tener al menos 3 caracteres.
+      </ion-label>
+      <ion-item class="dato_usuario">
+        <ion-label position="floating">Email:</ion-label>
+        <ion-input formControlName="email" type="text"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="formRegister.controls.email.errors?.required && (formRegister.touched || formRegister.dirty)">
+        * Debe introducir un email.
+      </ion-label>
+      <ion-label color="danger" *ngIf="formRegister.controls.email.errors?.minLength && (formRegister.touched || formRegister.dirty)">
+        * Su email debe tener al menos 3 caracteres.
+      </ion-label>
+      <ion-item class="dato_usuario">
+        <ion-label position="floating">Contraseña:</ion-label>
+        <ion-input formControlName="password" type="text"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="formRegister.controls.password.errors?.required && (formRegister.touched || formRegister.dirty)">
+        * Debe introducir una contraseña.
+      </ion-label>
+      <ion-label color="danger" *ngIf="formRegister.controls.password.errors?.minLength && (formRegister.touched || formRegister.dirty)">
+        * Su contraseña debe tener al menos 3 caracteres.
+      </ion-label>
+      <ion-item class="dato_usuario">
+        <ion-label position="floating">Confirmar contraseña:</ion-label>
+        <ion-input formControlName="c_password" type="text"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="formRegister.controls.c_password.errors?.required && (formRegister.touched || formRegister.dirty)">
+        * La contraseña debe ser la misma.
+      </ion-label>
+      <ion-label color="danger" *ngIf="formRegister.controls.c_password.errors?.minLength && (formRegister.touched || formRegister.dirty)">
+        * Su contraseña debe tener al menos 3 caracteres.
+      </ion-label>
+      <br>
+      <ion-button type="submit">Registrar</ion-button>
+    </div>
   </form>
 
 </ion-content>

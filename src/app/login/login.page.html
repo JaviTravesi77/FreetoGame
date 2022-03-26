@@ -4,10 +4,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="row justify-content-center">
 
   <!-- [formGroup] = "formLogin" -->
   <form [formGroup]="formLogin" method="POST" (ngSubmit)="login_real()">
+    <div class="logueo">
     <ion-item class="dato_usuario">
       <ion-label position="floating">Email:</ion-label>
       <ion-input formControlName="email" type="text"></ion-input>
@@ -28,9 +29,17 @@
     <ion-label color="danger" *ngIf="formLogin.controls.password.errors?.minLength && (formLogin.touched || formLogin.dirty)">
       * Su contraseña debe tener al menos 3 caracteres.
     </ion-label>
+    <br>
     <ion-button type="submit" color="primary">Entrar</ion-button>
+    <br>
+    <br>
+    <br>
+    <ion-label position="floating">¿No tienes una cuenta?</ion-label>
+    <br>
+    <br>
+    <ion-button color="secondary" routerLink="/register">Regístrate</ion-button>
+  </div>
   </form>
   <br>
-  <ion-label position="floating">¿No tienes una cuenta?</ion-label>
-  <ion-button color="secondary" routerLink="/register">Regístrate</ion-button>
+  
 </ion-content>
