@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Juegos
+      <ion-icon name="play"></ion-icon>
+    </ion-title>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list #lista>
+    <ion-item-sliding *ngFor="let juego of juegos">
+      <ion-item  color="secondary" *ngIf="mostrarJuegos?.length!==0">
+        <ion-label>Mostrando {{ juegos.length }} de 75 juegos.</ion-label>
+      </ion-item>
+      <ion-card color="light">
+        <ion-label >
+            <p>Título: {{ juego.title }}</p>
+            <p>Imagen: {{juego.thumbnail}}</p>
+            <p>Descripción: {{ juego.short_description }}</p>
+            <p>Desarrollador: {{ juego.developer }}</p>
+            <p>Plataforma: {{ juego.platform }}</p>
+        </ion-label>
+      </ion-card>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="primary">
+      <ion-tab-button tab="juegos" routerLink="/juegos">
+      <ion-icon name="play"></ion-icon>
+      <ion-label>Juegos</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="plataformas" routerLink="/plataformas">
+      <ion-icon name="cube"></ion-icon>
+      <ion-label>Plataformas</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  <ion-infinite-scroll threshold="150px" (ionInfinite)="loadData($event)" id="infinite-scroll">
+    <ion-infinite-scroll-content loading-spinner="crescent" loading-text="Cargando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+<!-- <app-footer></app-footer> -->

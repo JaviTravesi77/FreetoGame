@@ -4,17 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PaginaInventadaPageRoutingModule } from './pagina-inventada-routing.module';
+import { PlataformasPageRoutingModule } from './plataformas-routing.module';
 
-import { PaginaInventadaPage } from './pagina-inventada.page';
+import { PlataformasPage } from './plataformas.page';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PaginaInventadaPageRoutingModule
+    PlataformasPageRoutingModule
   ],
-  declarations: [PaginaInventadaPage]
+  
 })
-export class PaginaInventadaPageModule {}
+export class PlataformasPageModule {}

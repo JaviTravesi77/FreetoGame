@@ -48,7 +48,7 @@ export class LoginPage implements OnInit {
           if(this.user.type == 'a'){
             this.router.navigate(['/userlist']);
           }else{
-            this.router.navigate(['/pagina-inventada'/*, this.user.company_id*/]);//va a una pagina inventada que haremos en la 2a entrega
+            this.router.navigate(['/juegos']);
           }
         }else{
           this.showAlert('Error', 'Espere a ser activado por el administrador.');

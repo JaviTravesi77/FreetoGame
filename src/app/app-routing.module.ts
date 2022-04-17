@@ -25,8 +25,20 @@ const routes: Routes = [
     loadChildren: () => import('./userlist/userlist.module').then( m => m.UserlistPageModule)
   },
   {
-    path: 'pagina-inventada',
-    loadChildren: () => import('./pagina-inventada/pagina-inventada.module').then( m => m.PaginaInventadaPageModule)
+    path: 'catalogo',
+    loadChildren: () => import('./catalogo/catalogo.module').then( m => m.CatalogoPageModule)
+  },
+  {
+    path: 'juegos',
+    loadChildren: () => import('./juegos/juegos.module').then( m => m.JuegosPageModule)
+  },
+  {
+    path: 'plataformas',
+    loadChildren: () => import('./plataformas/plataformas.module').then( m => m.PlataformasPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
   
 ];

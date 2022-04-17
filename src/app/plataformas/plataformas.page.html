@@ -1,0 +1,146 @@
+<ion-header [translucent]="true">
+<!-- titulo -->
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Plataformas
+      <ion-icon name="cube"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+  <!-- barra opciones -->
+  <ion-toolbar color="light">
+
+    <ion-segment 
+    value="all" 
+    color="tertiary" 
+    scrollable="true"
+    mode="ios"
+    [(ngModel)]="segmentModel" 
+    (ionChange)="segmentChanged($event)">
+
+      <ion-segment-button (click)="mostrarJuegosPC()">
+        <ion-label>PC (Windows)</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button (click)="mostrarJuegosBrowser()">
+        <ion-label>Web Browser</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+<!-- contenido del PC -->
+  <ion-card *ngIf="mostrarJuegosPC">
+    <ion-card-header>
+      <ion-card-subtitle>Plataforma</ion-card-subtitle>
+      <ion-card-title>PC</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-card *ngFor="let juego of juegosPC">
+        <ion-label>
+            <p>Título: {{ juego.title }}</p>
+            <p>Imagen: {{juego.thumbnail}}</p>
+            <p>Descripción: {{ juego.short_description }}</p>
+            <p>Desarrollador: {{ juego.developer }}</p>
+            <p>Plataforma: {{ juego.platform }}</p>
+        </ion-label>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+<!-- contenido del browser -->
+  <ion-card *ngIf="mostrarJuegosBrowser">
+    <ion-card-header>
+      <ion-card-subtitle>Plataforma</ion-card-subtitle>
+      <ion-card-title>Web Browser</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-item-sliding *ngFor="let juego of juegosBro">
+        <ion-card>
+          <ion-label>
+              <p>Título: {{ juego.title }}</p>
+              <p>Imagen: {{juego.thumbnail}}</p>
+              <p>Descripción: {{ juego.short_description }}</p>
+              <p>Desarrollador: {{ juego.developer }}</p>
+              <p>Plataforma: {{ juego.platform }}</p>
+          </ion-label>
+          <!-- <div *ngIf="!showAll">
+            {{juego| pipe:10:showAll}}
+            <ion-button (click)="showAll=true">Ver más</ion-button>
+          </div>
+          <div *ngIf="showAll">
+            {{juego.short_description}}
+            <ion-button (click)='showAll=false'>Ver menos</ion-button>
+          </div> -->
+        </ion-card>
+      </ion-item-sliding>
+    </ion-card-content>
+  </ion-card>
+  <!-- barra de abajo-->
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="primary">
+      <ion-tab-button tab="juegos" routerLink="/juegos">
+      <ion-icon name="play"></ion-icon>
+      <ion-label>Juegos</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="plataformas" routerLink="/plataformas">
+      <ion-icon name="cube"></ion-icon>
+      <ion-label>Plataformas</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
+
+<!-- <ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Plataformas
+      <ion-icon name="cube"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment scrollable mode="md" color="primary">
+    <ion-segment-button mode="md" value="opcion">
+      <ion-label (click)="mostrarJuegosPC" class="ion-text-capitalize">PC (Windows)</ion-label>
+    </ion-segment-button>
+    <ion-segment-button mode="md" value="opcion">
+      <ion-label (click)="mostrarJuegosBrowser" class="ion-text-capitalize">Web Browser</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div>
+  <ion-item-sliding *ngFor="let juego of juegos">
+    <ion-card color="light">
+      <ion-label>
+          <p>Título: {{ juego.title }}</p>
+          <p>Imagen: {{juego.thumbnail}}</p>
+          <p>Descripción: {{ juego.short_description }}</p>
+          <p>Desarrollador: {{ juego.developer }}</p>
+          <p>Plataforma: {{ juego.platform }}</p>
+      </ion-label>
+    </ion-card>
+  </ion-item-sliding>
+  </div>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="primary">
+      <ion-tab-button tab="juegos" routerLink="/juegos">
+      <ion-icon name="play"></ion-icon>
+      <ion-label>Juegos</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="plataformas" routerLink="/plataformas">
+      <ion-icon name="cube"></ion-icon>
+      <ion-label>Plataformas</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content> -->

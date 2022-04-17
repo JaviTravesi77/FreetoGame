@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">Catálogo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="catal">
+  <p>¡ Bienvenido a nuestro catálogo !</p>
+  <p>En la pestaña "Juegos" encontrarás todos los juegos disponibles y en "Plataforma" los verás divididos por categorías, ya sea PC(Windows) o Web Browser. </p>
+  <p>También contarás con un amplio apartado de comentarios acerca de nuestra web por parte de la gran comunidad de jugadores que hemos creado, ¡ corre a verlo !</p>
+  <p>Nos vemos en el campo de batalla soldado, suerte !!!</p>
+  
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="primary">
+      <ion-tab-button tab="juegos" routerLink="/juegos">
+      <ion-icon name="play"></ion-icon>
+      <ion-label>Juegos</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="plataformas" routerLink="/plataformas">
+      <ion-icon name="cube"></ion-icon>
+      <ion-label>Plataformas</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</div>
+</ion-content>

@@ -17,6 +17,7 @@ export class RestService {
   c_password: any;
   firstname: any;
   secondname: any;
+  getJuegosPlataforma: any;
 
   constructor(private http: HttpClient) { }
 
@@ -179,6 +180,7 @@ export class RestService {
       });
     });
   }
+  
   // showAdmins(id: number, type){
   //   return new Promise(resolve =>{
   //     this.http.get(this.user.id),
