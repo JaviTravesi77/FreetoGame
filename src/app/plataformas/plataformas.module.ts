@@ -8,7 +8,6 @@ import { PlataformasPageRoutingModule } from './plataformas-routing.module';
 
 import { PlataformasPage } from './plataformas.page';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +15,6 @@ import { PlataformasPage } from './plataformas.page';
     IonicModule,
     PlataformasPageRoutingModule
   ],
-  
+  declarations: [PlataformasPage]
 })
 export class PlataformasPageModule {}

@@ -10,6 +10,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
+  
   <ion-list #lista>
     <ion-item-sliding *ngFor="let juego of juegos">
       <ion-item  color="secondary" *ngIf="mostrarJuegos?.length!==0">
@@ -17,8 +18,8 @@
       </ion-item>
       <ion-card color="light">
         <ion-label >
-            <p>Título: {{ juego.title }}</p>
-            <p>Imagen: {{juego.thumbnail}}</p>
+            <p>{{ juego.title }}</p>
+            <img src="{{juego.thumbnail}}">
             <p>Descripción: {{ juego.short_description }}</p>
             <p>Desarrollador: {{ juego.developer }}</p>
             <p>Plataforma: {{ juego.platform }}</p>
@@ -38,6 +39,11 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
+  
+  <!-- <ion-infinite-scroll>
+    <ion-infinite-scroll-content loading-spinner="crescent" loadingText="Cargando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
   <ion-infinite-scroll threshold="150px" (ionInfinite)="loadData($event)" id="infinite-scroll">
     <ion-infinite-scroll-content loading-spinner="crescent" loading-text="Cargando...">
     </ion-infinite-scroll-content>

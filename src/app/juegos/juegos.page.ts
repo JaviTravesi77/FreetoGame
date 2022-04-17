@@ -15,7 +15,7 @@ export class JuegosPage implements OnInit {
   // aqui en vez de declarar todos los campos he creado un array en el cual están todos dentro.
   // juegosPosts: any;
 
-  @ViewChild(IonInfiniteScroll, {static: true}) infiniteScroll: IonInfiniteScroll;
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
   constructor(private GamesService: GamesService) { }
 
@@ -36,7 +36,7 @@ export class JuegosPage implements OnInit {
     console.log('Cargando los siguientes....');
     setTimeout(() => {
 
-      if (this.data.length > 50){
+      if (this.data.length > 10){
         event.target.complete();
         return;
       }
