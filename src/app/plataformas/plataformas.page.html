@@ -39,12 +39,19 @@
       <ion-card-content>
         <ion-card *ngFor="let juego of juegosPC">
           <ion-label>
-            <p>{{ juego.title }}</p>
+            <h1 class="center">{{ juego.title }}</h1>
             <img src="{{juego.thumbnail}}">
-            <p>Descripción: {{ juego.short_description }}</p>
             <p>Desarrollador: {{ juego.developer }}</p>
             <p>Plataforma: {{ juego.platform }}</p>
           </ion-label>
+          <div *ngIf="!showAll">
+            {{juego | pipe:10:showAll}}
+            <ion-button (click)="showAll=true">Ver más</ion-button>
+          </div>
+          <div *ngIf="showAll">
+            {{juego.short_description}}
+            <ion-button (click)='showAll=false'>Ver menos</ion-button>
+          </div>
         </ion-card>
       </ion-card-content>
     </ion-card>
@@ -61,34 +68,33 @@
             <ion-label>
               <p>{{ juego.title }}</p>
               <img src="{{juego.thumbnail}}">
-              <p>Descripción: {{ juego.short_description }}</p>
               <p>Desarrollador: {{ juego.developer }}</p>
               <p>Plataforma: {{ juego.platform }}</p>
             </ion-label>
-            <!-- <div *ngIf="!showAll">
-              {{juego| pipe:10:showAll}}
+            <div *ngIf="!showAll">
+              {{juego | pipe:10:showAll}}
               <ion-button (click)="showAll=true">Ver más</ion-button>
             </div>
             <div *ngIf="showAll">
               {{juego.short_description}}
               <ion-button (click)='showAll=false'>Ver menos</ion-button>
-            </div> -->
+            </div>
           </ion-card>
         </ion-item-sliding>
       </ion-card-content>
     </ion-card>
+
     <!-- barra de abajo-->
-  
-    <ion-tabs>
-      <ion-tab-bar slot="bottom" color="primary">
-        <ion-tab-button tab="juegos" routerLink="/juegos">
-        <ion-icon name="play"></ion-icon>
-        <ion-label>Juegos</ion-label>
-        </ion-tab-button>
-        <ion-tab-button tab="plataformas" routerLink="/plataformas">
-        <ion-icon name="cube"></ion-icon>
-        <ion-label>Plataformas</ion-label>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
-  </ion-content>
+    
+      <ion-tabs>
+        <ion-tab-bar slot="bottom" color="primary">
+          <ion-tab-button tab="juegos" routerLink="/juegos">
+          <ion-icon name="play"></ion-icon>
+          <ion-label>Juegos</ion-label>
+          </ion-tab-button>
+          <ion-tab-button tab="plataformas" routerLink="/plataformas">
+          <ion-icon name="cube"></ion-icon>
+          <ion-label>Plataformas</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>

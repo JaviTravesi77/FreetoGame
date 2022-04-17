@@ -17,7 +17,7 @@ export class PlataformasPage implements OnInit {
   segmentModel = "favorites";
   // showAll: any;
   public showAll: any = false;
-  
+
   constructor(private GamesService: GamesService) { }
 
   ngOnInit() {
@@ -43,18 +43,11 @@ export class PlataformasPage implements OnInit {
   
   segmentChanged(event){
     console.log(this.segmentModel);
-    
     console.log(event);
   }
   
-    
-  triggerReadMore(showAll) {
+  pipeRead(showAll) {
       showAll = true;
       console.log(showAll);
   }
-  // PipeLeer(showAll){
-  //   showAll = true;
-  //   console.log(showAll);
-
-  // }
 }
