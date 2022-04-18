@@ -3,13 +3,13 @@
     <ion-buttons slot="start">
       <ion-back-button routerLink="/login"></ion-back-button>
     </ion-buttons>
-    <ion-title style="text-align: center;">Catálogo</ion-title>
+    <ion-title style="text-align: center;">Juegos favoritos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="catal">
-  <p>¡ Bienvenido a nuestro catálogo !</p>
+  <div class="favs">
+  <p>¡ Bienvenido a nuestra lista de juegos favoritos !</p>
   <p></p>
   
   <ion-tabs>
@@ -21,6 +21,10 @@
       <ion-tab-button tab="plataformas" routerLink="/plataformas">
       <ion-icon name="cube"></ion-icon>
       <ion-label>Plataformas</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="favoritos" routerLink="/favoritos">
+        <ion-icon name="star"></ion-icon>
+        <ion-label>Favoritos</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>

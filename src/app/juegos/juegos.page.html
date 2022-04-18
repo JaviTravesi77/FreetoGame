@@ -13,9 +13,6 @@
   
   <ion-list #lista>
     <ion-item-sliding *ngFor="let juego of juegos">
-      <ion-item  color="secondary" *ngIf="mostrarJuegos?.length!==0">
-        <ion-label>Mostrando {{ juegos.length }} de 75 juegos.</ion-label>
-      </ion-item>
       <ion-card color="light">
         <ion-label >
             <p>{{ juego.title }}</p>
@@ -23,8 +20,21 @@
             <p>Descripción: {{ juego.short_description }}</p>
             <p>Desarrollador: {{ juego.developer }}</p>
             <p>Plataforma: {{ juego.platform }}</p>
-        </ion-label>
-      </ion-card>
+          </ion-label>
+          <div *ngIf="!showAll">
+            {{juego | pipe:10:showAll}}
+            <ion-button (click)="showAll=true">Ver más</ion-button>
+          </div>
+          <div *ngIf="showAll">
+            {{juego.short_description}}
+            <ion-button (click)='showAll=false'>Ver menos</ion-button>
+          </div>
+        </ion-card>
+        <!-- <ion-item-options side="right">
+          <button ion-button  color="success" ><ion-icon name="star"></ion-icon>
+             Favorito
+          </button>
+        </ion-item-options> -->
     </ion-item-sliding>
   </ion-list>
   <ion-tabs>
@@ -36,6 +46,10 @@
       <ion-tab-button tab="plataformas" routerLink="/plataformas">
       <ion-icon name="cube"></ion-icon>
       <ion-label>Plataformas</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="favoritos" routerLink="/favoritos">
+        <ion-icon name="star"></ion-icon>
+        <ion-label>Favoritos</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>

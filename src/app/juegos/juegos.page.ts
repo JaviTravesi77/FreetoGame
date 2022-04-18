@@ -12,8 +12,7 @@ export class JuegosPage implements OnInit {
 
   juegos: any;
   data: any;
-  // aqui en vez de declarar todos los campos he creado un array en el cual están todos dentro.
-  // juegosPosts: any;
+  public showAll: any = false;
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
@@ -46,6 +45,13 @@ export class JuegosPage implements OnInit {
       event.target.complete();
       this.infiniteScroll.disabled = true;
       }, 1000);
+   }
+   pipeRead(showAll) {
+    showAll = true;
+    console.log(showAll);
+}
+   añadirFavs(){
+
    }
    
   // onViewDidLoad() {

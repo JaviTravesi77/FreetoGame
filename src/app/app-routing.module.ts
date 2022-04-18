@@ -25,8 +25,8 @@ const routes: Routes = [
     loadChildren: () => import('./userlist/userlist.module').then( m => m.UserlistPageModule)
   },
   {
-    path: 'catalogo',
-    loadChildren: () => import('./catalogo/catalogo.module').then( m => m.CatalogoPageModule)
+    path: 'favoritos',
+    loadChildren: () => import('./favoritos/favoritos.module').then( m => m.FavoritosPageModule)
   },
   {
     path: 'juegos',
@@ -40,11 +40,6 @@ const routes: Routes = [
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
-  {
-    path: 'plataformas',
-    loadChildren: () => import('./plataformas/plataformas.module').then( m => m.PlataformasPageModule)
-  },
-  
 ];
 
 @NgModule({

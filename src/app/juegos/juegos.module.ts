@@ -8,6 +8,7 @@ import { JuegosPageRoutingModule } from './juegos-routing.module';
 
 import { JuegosPage } from './juegos.page';
 import { ComponentsModule } from '../components/components.module';
+import { PipePipe } from './pipe.pipe';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { ComponentsModule } from '../components/components.module';
     JuegosPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [JuegosPage]
+  declarations: [JuegosPage, PipePipe]
 })
 export class JuegosPageModule {}
