@@ -14,27 +14,39 @@
   <ion-list #lista>
     <ion-item-sliding *ngFor="let juego of juegos">
       <ion-card color="light">
-        <ion-label >
-            <p>{{ juego.title }}</p>
-            <img src="{{juego.thumbnail}}">
-            <p>Descripción: {{ juego.short_description }}</p>
-            <p>Desarrollador: {{ juego.developer }}</p>
-            <p>Plataforma: {{ juego.platform }}</p>
-          </ion-label>
-          <div *ngIf="!showAll">
-            {{juego | pipe:10:showAll}}
-            <ion-button (click)="showAll=true">Ver más</ion-button>
-          </div>
-          <div *ngIf="showAll">
-            {{juego.short_description}}
-            <ion-button (click)='showAll=false'>Ver menos</ion-button>
-          </div>
-        </ion-card>
+        <ion-label>
+          <p>{{ juego.title }}</p>
+          <img src="{{juego.thumbnail}}">
+          <p>Descripción: {{ juego.short_description }}</p>
+          <p>Desarrollador: {{ juego.developer }}</p>
+          <p>Plataforma: {{ juego.platform }}</p>
+        </ion-label>
         <!-- <ion-item-options side="right">
-          <button ion-button  color="success" ><ion-icon name="star"></ion-icon>
-             Favorito
+          <button ion-button  color="success"><ion-icon name="star"></ion-icon>
+              Favorito
           </button>
         </ion-item-options> -->
+        <div *ngIf="!showAll">
+          {{juego | pipe:10:showAll}}
+          <ion-button (click)="showAll=true">Ver más</ion-button>
+        </div>
+        <div *ngIf="showAll">
+          {{juego.short_description}}
+          <ion-button (click)='showAll=false'>Ver menos</ion-button>
+        </div>
+        <div *ngIf="star"; then = false; else = true>
+          <ng-template #false>
+            <ion-button (click)=starButton class="button button-clear icon ion-star button assertive">
+              <ion-icon name="star-outline"></ion-icon>
+            </ion-button>
+          </ng-template>
+          <ng-template #true>
+            <ion-button class="button button-clear icon ion-star button assertive">
+              <ion-icon name="star"></ion-icon>
+            </ion-button>
+          </ng-template>
+        </div>
+      </ion-card>
     </ion-item-sliding>
   </ion-list>
   <ion-tabs>

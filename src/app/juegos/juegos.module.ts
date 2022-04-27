@@ -16,7 +16,7 @@ import { PipePipe } from './pipe.pipe';
     FormsModule,
     IonicModule,
     JuegosPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
   ],
   declarations: [JuegosPage, PipePipe]
 })

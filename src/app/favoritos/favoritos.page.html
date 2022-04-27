@@ -7,20 +7,51 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="favs">
-  <p>¡ Bienvenido a nuestra lista de juegos favoritos !</p>
+<ion-content color="dark">
+  <ion-slides [options]="sliderOpts"
+    *ngIf="FavsService.juegos.length === 0">
+    <ion-slide>
+      <ion-label>No hay juegos favoritos que mostrar</ion-label>
+    </ion-slide>
+  </ion-slides>
+    <!-- <app-juegos *ngIf="FavsService.juegos.length > 0"
+    [juegos]="FavsService.juegos.length"></app-juegos> -->
   <p></p>
-  
+  <ion-list #lista>
+    <ion-item-sliding *ngFor="let juego of juegos">
+      <ion-card color="light">
+        <ion-label>
+          <p>{{ juego.title }}</p>
+          <img src="{{juego.thumbnail}}">
+          <p>Descripción: {{ juego.short_description }}</p>
+          <p>Desarrollador: {{ juego.developer }}</p>
+          <p>Plataforma: {{ juego.platform }}</p>
+        </ion-label>
+        <!-- <ion-item-options side="right">
+          <button ion-button  color="success"><ion-icon name="star"></ion-icon>
+              Favorito
+          </button>
+        </ion-item-options> -->
+        <div *ngIf="!showAll">
+          {{juego | pipe:10:showAll}}
+          <ion-button (click)="showAll=true">Ver más</ion-button>
+        </div>
+        <div *ngIf="showAll">
+          {{juego.short_description}}
+          <ion-button (click)='showAll=false'>Ver menos</ion-button>
+        </div>
+      </ion-card>
+    </ion-item-sliding>
+  </ion-list>
   <ion-tabs>
     <ion-tab-bar slot="bottom" color="primary">
       <ion-tab-button tab="juegos" routerLink="/juegos">
-      <ion-icon name="play"></ion-icon>
-      <ion-label>Juegos</ion-label>
+        <ion-icon name="play"></ion-icon>
+        <ion-label>Juegos</ion-label>
       </ion-tab-button>
       <ion-tab-button tab="plataformas" routerLink="/plataformas">
-      <ion-icon name="cube"></ion-icon>
-      <ion-label>Plataformas</ion-label>
+        <ion-icon name="cube"></ion-icon>
+        <ion-label>Plataformas</ion-label>
       </ion-tab-button>
       <ion-tab-button tab="favoritos" routerLink="/favoritos">
         <ion-icon name="star"></ion-icon>
@@ -28,5 +59,4 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-</div>
 </ion-content>
