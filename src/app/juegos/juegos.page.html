@@ -9,23 +9,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content [fullscreen]="true" class="ion-padding" color="dark">
   
   <ion-list #lista>
-    <ion-item-sliding *ngFor="let juego of juegos">
+    <ion-item-sliding *ngFor="let juego of juegos" color="dark">
       <ion-card color="light">
-        <ion-label>
-          <p>{{ juego.title }}</p>
+        <ion-label class="letras">
+          <h1>{{ juego.title }}</h1>
           <img src="{{juego.thumbnail}}">
           <p>Descripción: {{ juego.short_description }}</p>
           <p>Desarrollador: {{ juego.developer }}</p>
           <p>Plataforma: {{ juego.platform }}</p>
         </ion-label>
-        <!-- <ion-item-options side="right">
-          <button ion-button  color="success"><ion-icon name="star"></ion-icon>
-              Favorito
-          </button>
-        </ion-item-options> -->
+          
         <div *ngIf="!showAll">
           {{juego | pipe:10:showAll}}
           <ion-button (click)="showAll=true">Ver más</ion-button>
@@ -34,18 +30,8 @@
           {{juego.short_description}}
           <ion-button (click)='showAll=false'>Ver menos</ion-button>
         </div>
-        <div *ngIf="star"; then = false; else = true>
-          <ng-template #false>
-            <ion-button (click)=starButton class="button button-clear icon ion-star button assertive">
-              <ion-icon name="star-outline"></ion-icon>
-            </ion-button>
-          </ng-template>
-          <ng-template #true>
-            <ion-button class="button button-clear icon ion-star button assertive">
-              <ion-icon name="star"></ion-icon>
-            </ion-button>
-          </ng-template>
-        </div>
+        <button class="button1" ion-button (click)="pulsarClick($event)" name="star-{{ juego.id }}" color="success"><ion-icon name="star-outline"></ion-icon>
+        </button>
       </ion-card>
     </ion-item-sliding>
   </ion-list>

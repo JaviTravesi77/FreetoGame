@@ -42,7 +42,7 @@ export class LoginPage implements OnInit {
       this.user = user;
       //console.log(user);
       this.user = this.user.data;
-
+      
       //if(this.user.email_confirmed == 0){
         if(this.user.actived == 1){
           if(this.user.type == 'a'){

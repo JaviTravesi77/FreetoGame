@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Juegos } from 'src/app/interfaces';
+import { Juego } from 'src/app/interfaces';
 import { GamesService } from '../services/games.service';
 import { IonInfiniteScroll } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
@@ -18,7 +18,13 @@ export class JuegosPage implements OnInit {
   public showAll: any = false;
   Storage: any;
   public star: any;
-  // array_favs : string[]
+  id: any;
+  juegosFavs : Juego[] = [];
+  thumbnail: any;
+  short_description: any;
+  game_url: any;
+  id_juegos: any;
+  data_juegos:  any;
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
  
@@ -26,13 +32,16 @@ export class JuegosPage implements OnInit {
   constructor(private GamesService: GamesService, public alertCtrl : AlertController, public IonicStorageModule : IonicStorageModule , private FavsService: FavsService) { 
     handler: () => {
       console.log('favoritos');
-      this.FavsService.guardarJuegos(this.juegos);
+      this.GamesService.getJuegosId(this.juegos);
     }
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.mostrarJuegos();
+    // await this.Storage.create();
   }
+  juegos1: Juego[];
+  favoritos: Juego[];
 
   public starButton(){
     if (this.star == false){
@@ -42,15 +51,6 @@ export class JuegosPage implements OnInit {
     }
   }
 
-  mostrarJuegos(){
-
-    this.GamesService.getJuegos()
-    .then(data => {
-      this.juegos = data;
-      console.log(this.juegos);
-    })
-
-  }
   loadData(event) {
     console.log('Cargando los siguientes....');
     setTimeout(() => {
@@ -71,47 +71,27 @@ export class JuegosPage implements OnInit {
     console.log(showAll);
   }
 
-  guardarJuegos(juego: Juegos){
-    const existe = this.juegos.find(juego => juego.title === juego.title);
-  
-  if(!existe){
-    this.juegos.unshift(this.juegos);
-    this.Storage.set('favoritos', this.juegos);
-    }
+  mostrarJuegos(){
+
+    this.GamesService.getJuegos()
+    .then(data => {
+      this.juegos = data;
+      console.log(this.juegos);
+    })
   }
-  
-  // localStorage.setItem("key", JSON.stringify(array_favs));
 
-  //  Favs(){
-  //   let alert = this.alertCtrl.create({
-  //     message: '¿Estás seguro de que deseas añadirlo a favoritos?',
-  //     buttons: [
-  //       {
-  //         text: 'No',
-  //         role: 'cancel',
-  //         handler: () => {
-  //           // Ha respondido que no, así que no hacemos nada
-  //         }
-  //       },
-  //       {
-  //         text: 'Si',
-  //         handler: () => {
-  //              // AquÍ borramos el sitio en la base de datos
+  pulsarClick($event){
+    this.id_juegos = $event.srcElement.name;
+    this.id_juegos = this.id_juegos.substring(5);
+    console.log(this.id_juegos);
+    this.GamesService.getJuegosId(this.id_juegos)
+    .then(data => {
+      this.data_juegos = data;
+      this.juegosFavs.push(this.data_juegos);
+      console.log(this.data_juegos);
+    })
+    localStorage.setItem('favoritos', JSON.stringify((this.juegosFavs)));
 
-  //          }
-  //       }
-  //     ]
-  //  })
-  
-   
-  // onViewDidLoad() {
-  //   this.getPosts();//Llamamos a la función getPost cuando la vista se cargue
-  // }
-  // getPosts() { //llamamos a la funcion getPost de nuestro servicio.
-  //   this.GamesService.getPosts()
-  //   .then(data => {
-  //     this.juegosPosts = data;
-  //   });
-  // }
+  }
 
 }

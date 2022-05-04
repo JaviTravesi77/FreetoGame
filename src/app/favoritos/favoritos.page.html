@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-buttons slot="start">
       <ion-back-button routerLink="/login"></ion-back-button>
     </ion-buttons>
@@ -7,21 +7,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="dark">
-  <ion-slides [options]="sliderOpts"
-    *ngIf="FavsService.juegos.length === 0">
+<ion-content color="light">
+  <!-- <ion-slides [options]="sliderOpts"
+    *ngIf="getDatosFavs.length === 0">
     <ion-slide>
       <ion-label>No hay juegos favoritos que mostrar</ion-label>
     </ion-slide>
-  </ion-slides>
+  </ion-slides> -->
     <!-- <app-juegos *ngIf="FavsService.juegos.length > 0"
     [juegos]="FavsService.juegos.length"></app-juegos> -->
   <p></p>
   <ion-list #lista>
     <ion-item-sliding *ngFor="let juego of juegos">
       <ion-card color="light">
-        <ion-label>
-          <p>{{ juego.title }}</p>
+        <ion-label class="letras">
+          <h1>{{ juego.title }}</h1>
           <img src="{{juego.thumbnail}}">
           <p>Descripción: {{ juego.short_description }}</p>
           <p>Desarrollador: {{ juego.developer }}</p>

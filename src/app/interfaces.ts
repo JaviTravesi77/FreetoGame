@@ -1,7 +1,7 @@
 export interface Interfaces {
 }
 
-export interface Juegos{
+export interface Juego{
     id: number;
     title: String;
     thumbnail: String;

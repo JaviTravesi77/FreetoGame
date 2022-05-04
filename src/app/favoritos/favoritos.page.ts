@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicStorageModule  } from '@ionic/storage-angular';
 import { FavsService } from '../services/favs.service';
+import { GamesService } from '../services/games.service';
 
 @Component({
   selector: 'app-favoritos',
@@ -11,12 +12,16 @@ export class FavoritosPage implements OnInit {
   Storage: any;
   juegos: any;
   public showAll: any = false;
+  guardado: any;
+  favoritos: any;
 
-  constructor(public IonicStorageModule : IonicStorageModule , public FavsService: FavsService) { 
-    this.cargarFavoritos();
+  constructor(public IonicStorageModule : IonicStorageModule , public FavsService: FavsService, public GamesService: GamesService) { 
+    
    }
 
   ngOnInit() {
+    this.getDatosFavs();
+
   }
 
   async cargarFavoritos(){
@@ -37,5 +42,13 @@ export class FavoritosPage implements OnInit {
     showAll = true;
     console.log(showAll);
   }
-  // tmb se podría crear un array con el id de los juegos favoritos
+
+  allObj: any[] = [];
+
+  getDatosFavs(){
+    this.juegos = JSON.parse(localStorage.getItem('favoritos'));
+
+    console.log(this.favoritos);
+  }
+
 }

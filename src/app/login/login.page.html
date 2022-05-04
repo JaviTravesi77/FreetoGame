@@ -21,7 +21,7 @@
     </ion-label>
     <ion-item class="dato_usuario">
       <ion-label position="floating">Contraseña:</ion-label>
-      <ion-input formControlName="password" type="text"></ion-input>
+      <ion-input  formControlName="password" type="text"></ion-input>
     </ion-item>
     <ion-label color="danger" *ngIf="formLogin.controls.password.errors?.required && (formLogin.touched || formLogin.dirty)">
       * Debe introducir una contraseña.
