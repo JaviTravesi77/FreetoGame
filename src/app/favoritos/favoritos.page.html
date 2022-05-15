@@ -3,7 +3,18 @@
     <ion-buttons slot="start">
       <ion-back-button routerLink="/login"></ion-back-button>
     </ion-buttons>
-    <ion-title style="text-align: center;">Juegos favoritos</ion-title>
+    
+    <!-- si carrito contiene 1 sólo pedido el botón se activará -->
+    <!-- cambiar a carrito.lenght > 0 ; else #other content-->
+    <div *ngIf="carrito.length === 0">
+    <ion-button tab="Pedidos" routerLink="/pedido">
+      <ion-icon name="cart"></ion-icon>
+    </ion-button>
+    <ion-title class="center">Favoritos</ion-title>
+    <!-- <ng-template #othercontent>
+      <ion-icon name="cart-outline"></ion-icon>
+    </ng-template> -->
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -21,17 +32,17 @@
     <ion-item-sliding *ngFor="let juego of juegos">
       <ion-card color="light">
         <ion-label class="letras">
+          
           <h1>{{ juego.title }}</h1>
           <img src="{{juego.thumbnail}}">
           <p>Descripción: {{ juego.short_description }}</p>
           <p>Desarrollador: {{ juego.developer }}</p>
           <p>Plataforma: {{ juego.platform }}</p>
-        </ion-label>
-        <!-- <ion-item-options side="right">
-          <button ion-button  color="success"><ion-icon name="star"></ion-icon>
-              Favorito
+          <!-- (click)="addPedido()" aquí debajo va -->
+          <button (click)="addPedido($event)" class="button2" name="add-{{ juego.id }}" ion-button>
+            <ion-icon name="add"></ion-icon>
           </button>
-        </ion-item-options> -->
+        </ion-label>
         <div *ngIf="!showAll">
           {{juego | pipe:10:showAll}}
           <ion-button (click)="showAll=true">Ver más</ion-button>

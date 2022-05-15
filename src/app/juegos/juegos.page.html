@@ -30,7 +30,8 @@
           {{juego.short_description}}
           <ion-button (click)='showAll=false'>Ver menos</ion-button>
         </div>
-        <button class="button1" ion-button (click)="pulsarClick($event)" name="star-{{ juego.id }}" color="success"><ion-icon name="star-outline"></ion-icon>
+        <button class="button1" ion-button (click)="pulsarClick($event)" name="star-{{ juego.id }}" color="success">
+          <ion-icon name="star-outline"></ion-icon>
         </button>
       </ion-card>
     </ion-item-sliding>

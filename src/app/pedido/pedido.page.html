@@ -1,0 +1,59 @@
+<ion-header [translucent]="true" class="center">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/favoritos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pedido</ion-title>
+    <script>
+    <ion-img src="Escritorio/icon-freeToGame.png"></ion-img>
+  </script>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="center">
+  <ion-item>No hay ningún juego en la pestaña actual.</ion-item>
+  <form method = "post">
+    <ion-label class="letras" *ngFor="let juego of juegos">
+      <div class="row header">
+        <div class="col">Título</div>
+        <div class="col">Descripción</div>
+        <div class="col">Desarrollador</div>
+        <div class="col">Plataforma</div>
+        <div class="col"></div>
+      </div>
+      <div class="row" ngFor*="let juego of juegos">
+        <div class="col">{{juego.title}}</div>
+        <div class="col">{{juego.short_description}}</div>
+        <div class="col">{{juego.developer}}</div>
+        <div class="col">{{juego.platform}}</div>
+      </div>
+    </ion-label>
+    <ion-item class="center">
+      <ion-button (click)="getPDF()">Pasar a PDF</ion-button>
+    </ion-item>
+  </form>
+</ion-content>
+<!-- <ion-header [translucent]="true" class="center">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/favoritos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pedido</ion-title>
+    <script>
+    <ion-img src="Escritorio/icon-freeToGame.png"></ion-img>
+    </script>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="row header">
+    <div class="col">Título</div>
+    <div class="col">Descripción</div>
+    <div class="col">Desarrollador</div>
+    <div class="col">Plataforma</div>
+    <div class="col"></div>
+  </div>
+  <div class="row" ngFor*="let juego of juegos">
+    <div class="col">{{juego.developer}</div>
+    <div class="col">{{juego.platform}</div>
+  </div>
+</ion-content> -->

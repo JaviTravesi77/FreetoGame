@@ -88,9 +88,12 @@ export class JuegosPage implements OnInit {
     .then(data => {
       this.data_juegos = data;
       this.juegosFavs.push(this.data_juegos);
+    //const existe = this.data_juegos.find(this.juegos , this.juegos.title === this.juegos.title)
       console.log(this.data_juegos);
     })
-    localStorage.setItem('favoritos', JSON.stringify((this.juegosFavs)));
+    //if (this.existe = undefined){
+      localStorage.setItem('favoritos', JSON.stringify((this.juegosFavs)));
+    //}
 
   }
 
