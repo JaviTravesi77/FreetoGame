@@ -3,6 +3,8 @@ import { IonicStorageModule  } from '@ionic/storage-angular';
 import { Juego } from '../interfaces';
 import { FavsService } from '../services/favs.service';
 import { GamesService } from '../services/games.service';
+import { Router } from '@angular/router';
+import { NavController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-favoritos',
@@ -21,14 +23,13 @@ export class FavoritosPage implements OnInit {
   juegosFavs : Juego[] = [];
   habilitado : boolean = false;
 
-  constructor(public IonicStorageModule : IonicStorageModule , public FavsService: FavsService, public GamesService: GamesService) { 
+  constructor(public IonicStorageModule : IonicStorageModule , public FavsService: FavsService, public GamesService: GamesService, public Router: Router, public navCtrl: NavController, public AlertController: AlertController) { 
     
    }
 
   ngOnInit() {
     this.getDatosFavs();
     document.getElementsByClassName('favoritos');
-    
   }
 
   async cargarFavoritos(){
@@ -69,13 +70,13 @@ export class FavoritosPage implements OnInit {
     //const existe = this.data_juegos.find(this.juegos , this.juegos.title === this.juegos.title)
       console.log(this.data_juegos);
     }) 
-    //if (this.existe = undefined){
+    
       localStorage.setItem('carrito', JSON.stringify((this.carrito)));
+      $event.srcElement.setAttribute("disabled", true);
+  }
 
-      if (this.habilitado = false){
-        this.habilitado = true;
-      }
-    //}
+  redirigir(){
+    this.navCtrl.navigateForward('/pdf');
   }
 
 }

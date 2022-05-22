@@ -7,7 +7,7 @@
     <!-- si carrito contiene 1 sólo pedido el botón se activará -->
     <!-- cambiar a carrito.lenght > 0 ; else #other content-->
     <div *ngIf="carrito.length === 0">
-    <ion-button tab="Pedidos" routerLink="/pedido">
+    <ion-button tab="Pedidos" (click)="redirigir()">
       <ion-icon name="cart"></ion-icon>
     </ion-button>
     <ion-title class="center">Favoritos</ion-title>

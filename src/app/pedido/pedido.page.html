@@ -10,7 +10,16 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="center">
-  <ion-item>No hay ningún juego en la pestaña actual.</ion-item>
+  <ion-item
+    *ngIf="getFavoritos.length === 0">
+      <ion-label>No hay ningún juego en la pestaña actual.</ion-label>
+  </ion-item>
+  <ion-item
+    *ngIf="getFavoritos.length > 0">
+      <ion-label></ion-label>
+  </ion-item>
+    <!-- <app-juegos *ngIf="getFavoritos.length > 0"
+    [juegos]="GamesService.juegos.length"></app-juegos> -->
   <form method = "post">
     <ion-label class="letras" *ngFor="let juego of juegos">
       <div class="row header">
@@ -28,7 +37,10 @@
       </div>
     </ion-label>
     <ion-item class="center">
-      <ion-button (click)="getPDF()">Pasar a PDF</ion-button>
+      <ion-button (click)="generatePDF()">Pedir PDF</ion-button>
+    </ion-item>
+    <ion-item class="center">
+      <ion-button (click)="sendMail()">Enviar PDF a Email</ion-button>
     </ion-item>
   </form>
 </ion-content>

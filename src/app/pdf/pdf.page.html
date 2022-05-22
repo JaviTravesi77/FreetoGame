@@ -1,0 +1,56 @@
+<ion-header [translucent]="true" class="center">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/favoritos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pedido</ion-title>
+    <script>
+  </script>
+  </ion-toolbar>
+
+  <h1 class="center">FREE TO GAME</h1>
+
+  <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+  <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+</ion-header>
+
+<ion-content color="light">
+  <div id="aqui">
+    <p class="center">
+    <img src="1024_2000.jpg" alt="Free to Game">
+    </p>
+    <table>
+      <div class="row header">
+        <div class="exc"></div>
+        <div class="col">Título</div>
+        <div class="col">Desarrollador</div>
+        <div class="col">Plataforma</div>
+      </div>
+      <ion-item *ngFor="let juego of juegos">
+        <ion-avatar slot="start">
+          <img src={{juego.thumbnail}}>
+        </ion-avatar>
+        <div class="col">{{juego.title}}</div>
+        <div class="col">{{juego.developer}}</div>
+        <div class="col">{{juego.platform}}</div>
+      </ion-item>
+  </table>
+    <br>
+    <div>
+      <p>SUBTOTAL</p>
+      <p>IMPUESTOS SOBRE LAS VENTAS</p>
+      <b>TOTAL A PAGAR EL </b>
+      <br>
+      <ion-datetime></ion-datetime>
+    </div>
+      <br>
+      <br>
+    <div class="final">
+      <ion-button color="secondary" (click)="generarPDF()">Pedir PDF</ion-button>
+      <ion-button color=secondary (click)="sendMail()">Enviar PDF a Email</ion-button>
+    </div>
+      <br>
+      <br>
+    <p class="center">GRACIAS POR CONFIAR EN NOSOTROS.</p>
+  </div>
+</ion-content>
