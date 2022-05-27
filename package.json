@@ -20,6 +20,8 @@
     "@angular/platform-browser-dynamic": "~13.2.2",
     "@angular/router": "~13.2.2",
     "@awesome-cordova-plugins/email-composer": "^5.41.0",
+    "@awesome-cordova-plugins/file": "^5.42.0",
+    "@awesome-cordova-plugins/file-opener": "^5.42.0",
     "@awesome-cordova-plugins/sqlite": "^5.41.0",
     "@capacitor/core": "3.4.3",
     "@ionic-native/email-composer": "^5.36.0",
@@ -31,7 +33,9 @@
     "@ionic/cordova-builders": "^6.1.0",
     "@ionic/storage": "^3.0.6",
     "@ionic/storage-angular": "^3.0.6",
+    "chart.js": "^3.7.1",
     "cordova": "^11.0.0",
+    "ng2-charts": "^3.0.11",
     "pdfmake": "^0.2.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
@@ -96,9 +100,7 @@
       "cordova-plugin-inappbrowser": {},
       "cordova-sqlite-storage": {},
       "cordova-pdf-generator": {},
-      "cordova-plugin-file-opener2": {
-        "ANDROID_SUPPORT_V4_VERSION": "27.+"
-      },
+      "cordova-plugin-file-opener2": {},
       "cordova-plugin-file": {},
       "cordova-plugin-email-composer": {}
     },

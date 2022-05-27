@@ -48,6 +48,10 @@ const routes: Routes = [
     path: 'pdf',
     loadChildren: () => import('./pdf/pdf.module').then( m => m.PdfPageModule)
   },
+  {
+    path: 'grafica',
+    loadChildren: () => import('./grafica/grafica.module').then( m => m.GraficaPageModule)
+  },
   
 ];
 

@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/userlist"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="centrado">
+      Gráfico
+      <ion-icon name="podium"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="centrado">
+  <ion-button  (click)="cargarDatos()" color="primary">Generar gráfico</ion-button>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        Juegos por categoría
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #doughnutCanvas style="position: relative; height:20vh; width:40vw"></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

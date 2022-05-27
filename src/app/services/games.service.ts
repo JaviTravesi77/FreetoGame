@@ -31,7 +31,7 @@ export class GamesService {
       })
       .subscribe(data => {
         resolve(data)
-        console.log(data);
+        // console.log(data);
       }, err => {
         console.log('Error al mostrar los juegos ' +err)
       });
@@ -46,7 +46,7 @@ export class GamesService {
       })
       .subscribe(data => {
         resolve(data)
-        console.log(data);
+        // console.log(data);
       }, err => {
         console.log('Error al obtener los juegos ' +err)
       });
@@ -61,7 +61,7 @@ export class GamesService {
       })
       .subscribe(data => {
         resolve(data)
-        console.log(data);
+        // console.log(data);
       }, err => {
         console.log('Error al obtener los juegos ' +err)
       });
@@ -76,7 +76,92 @@ export class GamesService {
       })
       .subscribe(data => {
         resolve(data)
-        console.log(data);
+        // console.log(data);
+      }, err => {
+        console.log('Error al obtener los juegos ' +err)
+      });
+    });
+  }
+
+  getCategory1(){
+    return new Promise(resolve => {
+      this.http.get('https://free-to-play-games-database.p.rapidapi.com/api/games' + '?category=MMORPG&',{
+        headers: new HttpHeaders().set('X-RapidAPI-Host', 'free-to-play-games-database.p.rapidapi.com')
+        .set('X-RapidAPI-Key', 'b4dabbcbe2msh42b8ff7f2b65cd6p186ac0jsn7baa32af7257')
+      })
+      .subscribe(data => {
+        resolve(data)
+        // console.log(data);
+      }, err => {
+        console.log('Error al obtener los juegos ' +err)
+      });
+    });
+  }
+  getCategory2(){
+    return new Promise(resolve => {
+      this.http.get('https://free-to-play-games-database.p.rapidapi.com/api/games' + '?category=Shooter&' ,{
+        headers: new HttpHeaders().set('X-RapidAPI-Host', 'free-to-play-games-database.p.rapidapi.com')
+        .set('X-RapidAPI-Key', 'b4dabbcbe2msh42b8ff7f2b65cd6p186ac0jsn7baa32af7257')
+      })
+      .subscribe(data => {
+        resolve(data)
+        // console.log(data);
+      }, err => {
+        console.log('Error al obtener los juegos ' +err)
+      });
+    });
+  }
+  getCategory3(){
+    return new Promise(resolve => {
+      this.http.get('https://free-to-play-games-database.p.rapidapi.com/api/games' + '?category=Moba&',{
+        headers: new HttpHeaders().set('X-RapidAPI-Host', 'free-to-play-games-database.p.rapidapi.com')
+        .set('X-RapidAPI-Key', 'b4dabbcbe2msh42b8ff7f2b65cd6p186ac0jsn7baa32af7257')
+      })
+      .subscribe(data => {
+        resolve(data)
+        // console.log(data);
+      }, err => {
+        console.log('Error al obtener los juegos ' +err)
+      });
+    });
+  }
+  getCategory4(){
+    return new Promise(resolve => {
+      this.http.get('https://free-to-play-games-database.p.rapidapi.com/api/games' + '?category=Strategy&',{
+        headers: new HttpHeaders().set('X-RapidAPI-Host', 'free-to-play-games-database.p.rapidapi.com')
+        .set('X-RapidAPI-Key', 'b4dabbcbe2msh42b8ff7f2b65cd6p186ac0jsn7baa32af7257')
+      })
+      .subscribe(data => {
+        resolve(data)
+        // console.log(data);
+      }, err => {
+        console.log('Error al obtener los juegos ' +err)
+      });
+    });
+  }
+  getCategory5(){
+    return new Promise(resolve => {
+      this.http.get('https://free-to-play-games-database.p.rapidapi.com/api/games' + '?category=Sports&',{
+        headers: new HttpHeaders().set('X-RapidAPI-Host', 'free-to-play-games-database.p.rapidapi.com')
+        .set('X-RapidAPI-Key', 'b4dabbcbe2msh42b8ff7f2b65cd6p186ac0jsn7baa32af7257')
+      })
+      .subscribe(data => {
+        resolve(data)
+        // console.log(data);
+      }, err => {
+        console.log('Error al obtener los juegos ' +err)
+      });
+    });
+  }
+  getCategory6(){
+    return new Promise(resolve => {
+      this.http.get('https://free-to-play-games-database.p.rapidapi.com/api/games' + '?category=Fighting&',{
+        headers: new HttpHeaders().set('X-RapidAPI-Host', 'free-to-play-games-database.p.rapidapi.com')
+        .set('X-RapidAPI-Key', 'b4dabbcbe2msh42b8ff7f2b65cd6p186ac0jsn7baa32af7257')
+      })
+      .subscribe(data => {
+        resolve(data)
+        // console.log(data);
       }, err => {
         console.log('Error al obtener los juegos ' +err)
       });

@@ -17,10 +17,19 @@ import { FileOpener } from '@ionic-native/file-opener';
 // import { EmailComposer } from '@ionic-native/email-composer';
 import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
 
+// Graficos
+import { NgChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ComponentsModule, IonicStorageModule.forRoot(), 
+  imports: [BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    HttpClientModule, 
+    ComponentsModule, 
+    IonicStorageModule.forRoot(), 
+    NgChartsModule
   ],
   providers: [PDFGenerator, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy,  } , EmailComposer
     
